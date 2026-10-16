@@ -1,0 +1,33 @@
+public class InvestmentAccount extends Account implements Withdrawable, InterestPayable{
+
+private static final double INTEREST_RATE=0.05;
+private static final double INITIAL_DEPOSIT=500;
+private double openingBalance;
+
+public InvestmentAccount(Customer id, double INITIAL_DEPOSIT)
+this.id = id.getId();
+openingBalance=INITIAL_DEPOSIT;
+
+public boolean processWithdrawal(double amount){
+
+if (this.balance >= amount){
+
+this.balance = this.balance - amount;
+return true;
+
+}
+
+System.out.println("ERROR: Insufficient funds!");
+return false;
+
+}
+}
+
+public void /*double*/ calculateInterest(){
+double interest=this.balance*INTEREST_RATE;
+this.balance=this.balance+interest;
+//return interest add to ArrayList or return
+
+}
+
+}

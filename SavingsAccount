@@ -1,0 +1,11 @@
+public class SavingsAccount extends Account implemts InterestPayable{
+
+private static final double INTEREST_RATE=0.0005;
+
+public void /*double*/ calculateInterest(){
+double interest=this.balance*INTEREST_RATE;
+this.balance=this.balance+interest;
+//return interest add to ArrayList or return
+}
+
+}

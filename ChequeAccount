@@ -1,0 +1,30 @@
+public class ChequeAccount extends Account implements Withdrawable{
+
+private Individual salary;
+
+public ChequeAccount(String accountNo, Customer id){
+super();
+this.accountNo=accountNo;
+ this.id=id.getId();
+}
+
+public Individual getSalary(){
+return salary;
+}
+
+public boolean processWithdrawal(double amount){
+
+if (this.balance >= amount){
+
+this.balance = this.balance - amount;
+return true;
+
+}
+
+System.out.println("ERROR: Insufficient funds!");
+return false;
+
+}
+}
+
+}

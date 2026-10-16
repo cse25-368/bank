@@ -1,0 +1,5 @@
+public interface Withdrawable{
+
+public abstract boolean processWithdrawal(double amount);
+
+}
