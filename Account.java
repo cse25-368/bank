@@ -1,14 +1,13 @@
-/*import java.time.LocalDateTime;
-import java.util.ArrayList;*/
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.time.format.DateTimeFormatter;
 
 abstract class Account{
 
 private String branchName;
 private String accountNo;
-//private double deposit;
 private double balance;
-//private LocalDateTime date;
-//private ArrayList<String> transactionHistory;
+private ArrayList<String> transactionHistory;
 private Customer id;
 private String chequeId;
 private String investmentId;
@@ -54,10 +53,15 @@ this.id=id;
 
 public boolean processDeposit(double deposit){
 
+   DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+            String date = LocalDateTime.now().format(formatter);
+
 if (deposit > 0){
 this.balance = this.balance + deposit;
+transactionHistory.add("Deposit: " + deposit + " | Balance: " + balance + " | Timestamp: " + date);
 return true;
 }
+
 System.out.println("ERROR: Invalid transaction amount!");
 return false;
 }
